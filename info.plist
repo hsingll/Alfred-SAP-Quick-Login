@@ -4,6 +4,8 @@
 <dict>
 	<key>bundleid</key>
 	<string>com.developer.hsingll</string>
+	<key>category</key>
+	<string>Tools</string>
 	<key>connections</key>
 	<dict>
 		<key>118228AE-EF0F-48D4-AE63-F97A9290F4FA</key>
@@ -60,7 +62,7 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>PYTHONIOENCODING=utf-8 python sapshortcut-filter.py "{query}"</string>
+				<string>PYTHONIOENCODING=utf-8 python sapshortcut-filter.py &quot;{query}&quot;</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -89,7 +91,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>bash quick-login.sh "{query}"</string>
+				<string>bash quick-login.sh &quot;{query}&quot;</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -126,11 +128,14 @@
 	</dict>
 	<key>variables</key>
 	<dict>
+		<key>VM_UUID</key>
+		<string></string>
 		<key>shortcut_dir</key>
 		<string></string>
 	</dict>
 	<key>variablesdontexport</key>
 	<array>
+		<string>VM_UUID</string>
 		<string>shortcut_dir</string>
 	</array>
 	<key>version</key>
