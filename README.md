@@ -9,6 +9,11 @@ SAP快捷登录Alfred捷径
 - [X] Windows虚拟机已安装SAP GUI for Windows
 
 ## 安装
+0.Windows虚拟机中添加如下环境变量到Path(重启才生效):
+```
+C:\Program Files (x86)\SAP\FrontEnd\SAPgui
+```
+
 1.下载Releases
 
 2.导入Alfred
@@ -23,9 +28,9 @@ prlctl list
 ```
 
 ## 使用
-1.Windows虚拟机保持运行
+0.Windows虚拟机保持运行
 
-2.Alfred指令:
+1.Alfred指令:
 ```
 sap <关键字>(自动搜索shortcut.ini中的条目)
 ```
