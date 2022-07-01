@@ -1,6 +1,9 @@
 # Alfred-SAP-Quick-Login
 SAP快捷登录Alfred捷径
 
+## 效果预览
+![Imgur](https://imgur.com/cI5LHbN)
+
 ## 必须条件
 - [X] 安装Alfred
 - [X] 安装Python2.7
