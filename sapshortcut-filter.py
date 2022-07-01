@@ -18,17 +18,17 @@ SHORTCUT_DIR = os.environ['shortcut_dir']
 # SHORTCUT_DIR = '/Users/Simon/Library/Mobile Documents/com~apple~CloudDocs/应用/SAP/Config/sapshortcut.ini'
 
 
-# TODO: list_passwords creates cache of passwords for first time
-def list_passwords():
+# TODO: list_shortcuts creates cache of shortcuts for first time
+def list_shortcuts():
     ret = []
     SHORTCUT_FILE = io.open(SHORTCUT_DIR,encoding="gbk")
     line = SHORTCUT_FILE.readline()
-    start = False
+    shortcut = False
     while line:
-        if start == False:
+        if shortcut == False:
             if line == "[Command]\n":
-                start = True
-        elif start == True:
+                shortcut = True
+        elif shortcut == True:
             ret.append("".join(re.findall(r"Key(?:.*?)=(.*)\n",line)))
         line = SHORTCUT_FILE.readline()
     SHORTCUT_FILE.close()
@@ -36,33 +36,33 @@ def list_passwords():
     return sorted(ret, key=lambda s: s.lower())
 
 
-def search_passwords(query):
-    ''' Search passwords using the Fuzzy search method if fuzzywuzzy is available,
+def search_shortcuts(query):
+    ''' Search shortcuts using the Fuzzy search method if fuzzywuzzy is available,
     or default to the filter-based search otherwise'''
     if fuzzysearch:
-        return search_passwords_fuzzy(query)
-    return search_passwords_filter(query)
+        return search_shortcuts_fuzzy(query)
+    return search_shortcuts_filter(query)
 
 
-def search_passwords_fuzzy(query):
-    ''' Search passwords using the Fuzzy search method using fuzzywuzzy'''
-    passwords = list_passwords()
-    return [entry[0] for entry in process.extract(query, passwords, limit=10)]
+def search_shortcuts_fuzzy(query):
+    ''' Search shortcuts using the Fuzzy search method using fuzzywuzzy'''
+    shortcuts = list_shortcuts()
+    return [entry[0] for entry in process.extract(query, shortcuts, limit=10)]
 
 
-def search_passwords_filter(query):
-    ''' Search passwords using the filter-based search, which doesn't require fuzzywuzzy'''
+def search_shortcuts_filter(query):
+    ''' Search shortcuts using the filter-based search, which doesn't require fuzzywuzzy'''
     ret = []
 
     terms = filter(lambda x: x, query.lower().split())
-    passwords = list_passwords()
+    shortcuts = list_shortcuts()
 
-    for password in passwords:
+    for shortcut in shortcuts:
         for t in terms:
-            if t not in password.lower():
+            if t not in shortcut.lower():
                 break
         else:
-            ret.append(password)
+            ret.append(shortcut)
 
     return ret
 
@@ -88,6 +88,6 @@ def xmlize_items(items, query):
     """ % '\n'.join(items_a)
 
 
-items = search_passwords(QUERY)
+items = search_shortcuts(QUERY)
 print xmlize_items(items, QUERY)
 
