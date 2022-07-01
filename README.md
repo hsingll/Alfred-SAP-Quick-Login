@@ -2,7 +2,8 @@
 SAP快捷登录Alfred捷径
 
 ## 效果预览
-![Imgur](https://imgur.com/cI5LHbN)
+![QQ20220702-001504-HD](https://user-images.githubusercontent.com/26346635/176936418-07c9cde2-3823-440e-a1da-5ed08518e036.gif)
+
 
 ## 必须条件
 - [X] 安装Alfred
