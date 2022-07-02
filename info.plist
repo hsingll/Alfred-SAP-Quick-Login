@@ -9,7 +9,18 @@
 	<key>connections</key>
 	<dict>
 		<key>118228AE-EF0F-48D4-AE63-F97A9290F4FA</key>
-		<array/>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>6A84C470-B31B-4572-A5DD-3E02E79936F2</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>967E625E-D870-4298-9A7A-97C043740D99</key>
 		<array>
 			<dict>
@@ -34,6 +45,50 @@
 	<string>SAP Quick Login</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>bash quick-login.sh "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>118228AE-EF0F-48D4-AE63-F97A9290F4FA</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>SAP快捷登录</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>6A84C470-B31B-4572-A5DD-3E02E79936F2</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -62,7 +117,7 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>PYTHONIOENCODING=utf-8 python sapshortcut-filter.py &quot;{query}&quot;</string>
+				<string>PYTHONIOENCODING=utf-8 python sapshortcut-filter.py "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -83,29 +138,6 @@
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>bash quick-login.sh &quot;{query}&quot;</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>118228AE-EF0F-48D4-AE63-F97A9290F4FA</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
 	</array>
 	<key>readme</key>
 	<string>A workflow to login SAP quickly.</string>
@@ -117,6 +149,13 @@
 			<integer>500</integer>
 			<key>ypos</key>
 			<real>300</real>
+		</dict>
+		<key>6A84C470-B31B-4572-A5DD-3E02E79936F2</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<integer>300</integer>
 		</dict>
 		<key>967E625E-D870-4298-9A7A-97C043740D99</key>
 		<dict>
@@ -139,7 +178,7 @@
 		<string>shortcut_dir</string>
 	</array>
 	<key>version</key>
-	<string>0.1.1</string>
+	<string>0.1.2</string>
 	<key>webaddress</key>
 	<string>https://github.com/hsingll/Alfred-SAP-Quick-Login</string>
 </dict>
