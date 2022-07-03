@@ -6,9 +6,9 @@ import os
 import re
 import sys
 
-fuzzysearch = False # True尝试使用fuzzywuzzy.process.extract匹配。但是尝试下来中文关键字的准确性不好，暂不启用。
+fuzzysearch = True # True尝试使用fuzzywuzzy.process.extract匹配
 try:
-    from fuzzywuzzy import process
+    from fuzzywuzzy import process, UWRatio
 except:
     fuzzysearch = False
 
@@ -47,7 +47,8 @@ def search_shortcuts(query):
 def search_shortcuts_fuzzy(query):
     ''' Search shortcuts using the Fuzzy search method using fuzzywuzzy'''
     shortcuts = list_shortcuts()
-    return [entry[0] for entry in process.extract(query, shortcuts, limit=10)]
+    #搜索关键词是非ascii字符时注意,https://segmentfault.com/q/1010000009868699
+    return [entry[0] for entry in process.extrac(query, shortcuts, scorer=UWRatio, limit=10)]
 
 
 def search_shortcuts_filter(query):
